@@ -1,0 +1,22 @@
+//pot and chalo7 tested
+
+int potPin = A0;
+
+float filtered = 0;
+
+void setup() {
+
+  Serial.begin(115200);
+}
+
+void loop() {
+
+  int raw = analogRead(potPin);
+
+  // smoothing filter
+  filtered = filtered * 0.9 + raw * 0.1;
+
+  Serial.println(filtered);
+
+  delay(10);
+}
